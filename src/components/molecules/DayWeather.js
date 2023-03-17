@@ -1,34 +1,32 @@
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, Text, View, ScrollView, Dimensions } from 'react-native';
 
+const SCREEN_WIDTH = Dimensions.get('window').width;
+console.log(SCREEN_WIDTH);
 export default function DayWeather() {
   return (
-    <View style={styles.weather}>
-      <View style={styles.day}>
-        <Text style={styles.temp}>13</Text>
-        <Text style={styles.descriptionTemp}>Sunny</Text>
-      </View>
+    <View style={styles.day}>
+      <Text style={styles.temp}>13</Text>
+      <Text style={styles.descriptionTemp}>Sunny</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  weather: {
-    flex: 2,
-    fontSize: 38,
-  },
   day: {
-    flex: 1,
+    width: SCREEN_WIDTH,
     alignItems: 'center',
-    justifyContent: 'center',
   },
   temp: {
     fontSize: 102,
     fontWeight: '600',
     color: 'white',
+    marginTop: 50,
   },
   descriptionTemp: {
     fontSize: 38,
     fontWeight: '500',
     color: 'white',
+    marginTop: -30,
   },
 });
