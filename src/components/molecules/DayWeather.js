@@ -1,14 +1,44 @@
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, ScrollView, Dimensions } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Dimensions,
+  ActivityIndicator,
+} from 'react-native';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
-console.log(SCREEN_WIDTH);
-export default function DayWeather() {
+// const  {width : SCREEN_WIDTH} = Dimensions.get('window')
+
+export default function DayWeather({ days }) {
+  console.log(
+    '웨더 배열입니다',
+    days.map((val) => val.weather),
+  );
   return (
-    <View style={styles.day}>
-      <Text style={styles.temp}>13</Text>
-      <Text style={styles.descriptionTemp}>Sunny</Text>
-    </View>
+    <>
+      {days.length === 0 ? (
+        <View style={styles.day}>
+          <ActivityIndicator style={styles.day} size='large' color='#ffffff' />
+        </View>
+      ) : (
+        days.map((day, idx) => (
+          <View key={idx} style={styles.day}>
+            <Text style={styles.dayTemp}>
+              {parseFloat(day.temp.day).toFixed(1)}℃
+            </Text>
+            <View style={styles.descContainer}>
+              <Text style={styles.weatherDescription}>
+                {day.weather[0].description}
+              </Text>
+              <Text style={styles.descriptionTemp}>{day.weather[0].main}</Text>
+            </View>
+            <Text style={styles.humidity}>
+              습도 : {parseFloat(day.humidity).toFixed(1)}
+            </Text>
+          </View>
+        ))
+      )}
+    </>
   );
 }
 
@@ -17,16 +47,28 @@ const styles = StyleSheet.create({
     width: SCREEN_WIDTH,
     alignItems: 'center',
   },
-  temp: {
+  descContainer: {
+    flexDirection: 'row',
+    padding: 5,
+  },
+  dayTemp: {
     fontSize: 102,
     fontWeight: '600',
-    color: 'white',
     marginTop: 50,
   },
   descriptionTemp: {
-    fontSize: 38,
+    fontSize: 26,
     fontWeight: '500',
     color: 'white',
-    marginTop: -30,
+  },
+  weatherDescription: {
+    fontSize: 26,
+    fontWeight: '500',
+    marginRight: 10,
+    color: 'white',
+  },
+  humidity: {
+    fontSize: 18,
+    fontWeight: '500',
   },
 });
