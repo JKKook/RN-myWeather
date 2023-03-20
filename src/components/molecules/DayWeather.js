@@ -75,43 +75,34 @@ const styles = StyleSheet.create({
     width: SCREEN_WIDTH,
     alignItems: 'center',
   },
+  // container
   mainContainer: {
     flexDirection: 'row',
   },
   descContainer: {
     flexDirection: 'row',
     width: '55%',
-    marginTop: 10,
   },
-  secondDescContainer: {
-    flexDirection: 'row',
-    width: '55%',
-    marginTop: 10,
-  },
+
   subInfoContainer: {
     width: SCREEN_WIDTH,
     alignItems: 'center',
   },
+
+  // description
   dayTemp: {
     fontSize: 102,
     fontWeight: '600',
   },
   descriptionTemp: {
-    fontSize: 26,
-    fontWeight: '500',
+    fontSize: 20,
+    fontWeight: '600',
     marginRight: 10,
-    color: 'white',
+    color: 'black',
   },
   weatherDescription: {
-    fontSize: 26,
-    fontWeight: '500',
-    marginRight: 30,
-    color: 'white',
-  },
-  humidity: {
     fontSize: 20,
-    fontWeight: '500',
-    color: 'white',
-    marginRight: 10,
+    fontWeight: '600',
+    color: 'black',
   },
 });
