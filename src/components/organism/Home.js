@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import * as Location from 'expo-location';
 import City from '../atom/City';
 import DayWeather from '../molecules/DayWeather';
+import SubInfo from './SubInfo';
 
 const API_KEY = '370a982a2eddb9816742fae0e3535a0c';
 
@@ -11,6 +12,7 @@ export default function Home() {
   const [city, setCity] = useState('...Loading');
   const [checkStatus, setCheckStatus] = useState('');
   const [days, setDays] = useState([]);
+  const [date, setDate] = useState([]);
 
   const handleLocation = async () => {
     const permission = await Location.requestForegroundPermissionsAsync();
@@ -31,6 +33,7 @@ export default function Home() {
 
     const json = await response.json();
     setDays(json.daily);
+    setDate(json);
   };
 
   useEffect(() => {
@@ -40,7 +43,8 @@ export default function Home() {
   return (
     <>
       <View style={styles.container}>
-        <City city={city} handleLocation={handleLocation} />
+        <StatusBar style='auto' />
+        <City city={city} days={days} handleLocation={handleLocation} />
         <ScrollView
           pagingEnabled // 좀 더 아이템들이 sticky하게 넘어가도록
           showsHorizontalScrollIndicator={false} // 아래 스크롤 움직이는 부분 제거
@@ -49,7 +53,6 @@ export default function Home() {
         >
           <DayWeather days={days} handleLocation={handleLocation} />
         </ScrollView>
-        <StatusBar style='auto' />
       </View>
     </>
   );

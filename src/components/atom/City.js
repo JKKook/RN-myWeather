@@ -1,6 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native';
+import React, { useState, useEffect, setTime } from 'react';
 
-export default function City({ city }) {
+export default function City({ city, days, handleLocation }) {
+  const [current, setCurrent] = useState(0);
+
+  // handleDate();
+
   return (
     <View style={styles.city}>
       <Text style={styles.cityName}>{city}</Text>
@@ -10,13 +15,13 @@ export default function City({ city }) {
 
 const styles = StyleSheet.create({
   city: {
-    flex: 1,
+    marginTop: 60,
     alignItems: 'center',
     justifyContent: 'center',
   },
   cityName: {
-    fontSize: 42,
-    fontWeight: '600',
+    fontSize: 32,
+    fontWeight: '800',
     color: 'white',
   },
 });
