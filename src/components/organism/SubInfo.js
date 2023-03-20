@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import SubInfoBlock from '../molecules/SubInfoBlock';
 export default function SubInfo({ days, handleLocation }) {
   return (

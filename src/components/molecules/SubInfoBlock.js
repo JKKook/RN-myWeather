@@ -8,12 +8,10 @@ import {
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
-export default function SubInfoBlock({ days }) {
-  //   console.log(days.map((val) => val.uvi));
-
+export default function SubInfoBlock({ days, handleLocation }) {
   return (
     <>
-      {days === undefined || null
+      {days.length === 0
         ? ''
         : days.map((day, idx) => (
             <>
@@ -22,9 +20,15 @@ export default function SubInfoBlock({ days }) {
                   <View style={styles.infoContainer}>
                     <FontAwesome name='sun-o' size={42} color='#FFD966' />
                     <Text style={styles.infoTitle}>자외선 지수</Text>
-                    <Text style={styles.infoUnit}>
-                      {parseFloat(day.uvi).toFixed(1)}
-                    </Text>
+                    {parseFloat(day.uvi).toFixed(1) < 6.0 ? (
+                      <Text style={styles.infoUnit}>
+                        {parseFloat(day.uvi).toFixed(1)}
+                      </Text>
+                    ) : (
+                      <Text style={{ ...styles.infoUnit, color: 'red' }}>
+                        {parseFloat(day.uvi).toFixed(1)}
+                      </Text>
+                    )}
                   </View>
                   <View style={styles.infoContainer}>
                     <Ionicons name='water' size={42} color='#BCCEF8' />
@@ -56,14 +60,15 @@ export default function SubInfoBlock({ days }) {
                       style={{
                         flexDirection: 'row',
                         justifyContent: 'flex-start',
+                        marginLeft: 20,
                         alignItems: 'center',
                         width: '100%',
                       }}
                     >
                       <Text style={{ ...styles.infoSubTitle, marginTop: 10 }}>
-                        최대 온도
+                        최대
                       </Text>
-                      <Text style={styles.infoSubText}>
+                      <Text style={{ ...styles.infoSubText, marginTop: 10 }}>
                         {parseFloat(day.temp.max).toFixed(0)}℃
                       </Text>
                     </View>
@@ -72,10 +77,11 @@ export default function SubInfoBlock({ days }) {
                         flexDirection: 'row',
                         justifyContent: 'flex-start',
                         alignItems: 'center',
+                        marginLeft: 20,
                         width: '100%',
                       }}
                     >
-                      <Text style={styles.infoSubTitle}>최저 온도</Text>
+                      <Text style={styles.infoSubTitle}>최저</Text>
                       <Text style={styles.infoSubText}>
                         {parseFloat(day.temp.min).toFixed(0)}℃
                       </Text>

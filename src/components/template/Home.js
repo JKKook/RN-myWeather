@@ -3,8 +3,7 @@ import { StyleSheet, View, ScrollView } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import * as Location from 'expo-location';
 import City from '../atom/City';
-import DayWeather from '../molecules/DayWeather';
-import SubInfo from './SubInfo';
+import DayWeather from '../organism/DayWeather';
 
 const API_KEY = '370a982a2eddb9816742fae0e3535a0c';
 

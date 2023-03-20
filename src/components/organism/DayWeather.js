@@ -6,7 +6,7 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import SubInfo from '../organism/SubInfo';
+import SubInfo from './SubInfo';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 //같은 처리 : const  {width : SCREEN_WIDTH} = Dimensions.get('window')
@@ -83,7 +83,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     width: '55%',
   },
-
   subInfoContainer: {
     width: SCREEN_WIDTH,
     alignItems: 'center',
