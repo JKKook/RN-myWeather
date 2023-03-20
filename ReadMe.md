@@ -4,8 +4,8 @@
 
 ## Main Image
 
-<img src="/assets/app.png" width="50%">
-<img src="/assets/uvi.png" width="50%">
+<img src="/assets/app.png" width="300">
+<img src="/assets/uvi.png" width="300">
 
 ## description
 
@@ -194,4 +194,9 @@ React와 차이점이 분명히 있었기에 초반에 차이점들을 파악하
 
 그리고, 다른 컴포넌트에서 Props를 전달 받아서 똑같이 배열 리소스를 얻었는데 연속 배열의 value를 얻지 못 해서 컴포넌트를 쪼개지 못 했습니다. 이 부분은 향후 마찬가지로 학습 이후에 개선할 예정입니다.
 
-마지막으로, 배포할 수 있는 앱을 꼭! 만들어보고자 합니다.
+마지막으로, 배포할 수 있는 앱을 꼭! 만들어보고자 합니다
+
+<br>
+
+## 노트 정리
+https://veil-shock-17c.notion.site/RN-Weather-app-73dd0d8017aa49f1bae6f360a593a85a
