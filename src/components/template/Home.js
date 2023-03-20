@@ -4,6 +4,8 @@ import React, { useState, useEffect } from 'react';
 import * as Location from 'expo-location';
 import City from '../atom/City';
 import DayWeather from '../organism/DayWeather';
+import SubInfo from '../organism/SubInfo';
+import SubInfoBlock from '../molecules/SubInfoBlock';
 
 const API_KEY = '370a982a2eddb9816742fae0e3535a0c';
 
